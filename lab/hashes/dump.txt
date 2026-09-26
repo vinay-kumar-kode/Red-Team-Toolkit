@@ -1,0 +1,22 @@
+# Sample password-hash dump for `rtt hash-audit --file lab/hashes/dump.txt`.
+#
+# All values are fabricated. The point is to exercise every algorithm detector:
+# unsalted fast digests, two bcrypt cost levels, argon2id, scrypt, md5crypt, one
+# reused password, and a value that is not a hash at all.
+#
+# Expected findings: hash.algorithm-md5 (critical), hash.low-cost-params on the
+# cost-4 bcrypt and the small-memory argon2id, hash.reused-passwords, and
+# hash.unknown-format for the trailing plaintext.
+#
+# identifier:hash
+admin:5f4dcc3b5aa765d61d8327deb882cf99
+admin:$2y$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewYyk5WFB5YJ0mSj
+reports:$2y$04$Lp2XyMGS1g0KQ0YVQ1pQeO7dJ3Kx1F0VvB6T1R8kMzXkJ2L0vXy9Wa
+svc_legacy:d41d8cd98f00b204e9800998ecf8427e
+dba:$argon2id$v=19$m=4096,t=1,p=1$c29tZXNhbHQ$Yn5Zp8Xq7bGxK1l0kJ2mN4pQ6rS8tU0vW2xY4zA6bC
+svc_legacy:5f4dcc3b5aa765d61d8327deb882cf99
+postgres:$1$salt1234$DIQ7XkNvJ3lm0YqPw0HDw1
+webadmin:$scrypt$ln=16,r=8,p=1$abcdefghijklmnopqrstuv$UVkZ3N5bFVxY2xkQ2hpR3JvYw==
+olduser:$1$abcdefgh$DIQ7XkNvJ3lm0YqPw0HDw1
+archive:2b3c9d1e0a7f4b6c8d5e1f2a3b4c5d6
+notahash:thisisnotahashatalljustatext

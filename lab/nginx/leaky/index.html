@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Red Team Toolkit lab</title>
+  </head>
+  <body>
+    <h1>Deliberately leaky lab service</h1>
+    <p>Served by the nginx service in <code>docker-compose.yml</code>, configured on
+       purpose with missing security headers, a permissive CSP, TRACE enabled and
+       version-disclosing headers.</p>
+    <p>The files beside this one (<code>.env</code>, <code>.git/config</code>) are the
+       exposed-path findings the toolkit is meant to report.</p>
+  </body>
+</html>

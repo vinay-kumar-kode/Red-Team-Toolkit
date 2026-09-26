@@ -1,0 +1,101 @@
+# Deliberately vulnerable lab targets for exercising the toolkit.
+#
+#   docker compose up -d
+#   python main.py attack --target 127.0.0.1 --i-understand --format all
+#
+# Everything binds to 127.0.0.1 only. Nothing here should ever be exposed on a
+# routable interface: each service is intentionally insecure on purpose.
+#
+# The set is chosen so the toolkit has something to find on each code path:
+#   dvwa   - web app on a non-standard port, weak security headers, no CSP
+#   juice  - modern SPA, so header analysis has something realistic to grade
+#   nginx   - serves /.git and /.env by mistake, for the exposed-path checks
+#   sshd    - a misconfigured sshd_config for the SSH audit
+#   redis   - unauthenticated by default, for the anonymous-service check
+#   postgres- for TLS and credential-surface checks
+
+services:
+  dvwa:
+    image: vulnerables/web-dvwa:latest
+    container_name: rtt-dvwa
+    ports:
+      - "127.0.0.1:8081:80"
+    environment:
+      # DVWA's own default credentials. This is a lab, not a deployment.
+      ADMIN_USER: admin
+      ADMIN_PASSWORD: password
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost/login.php"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  juice:
+    image: bkimminich/juice-shop:latest
+    container_name: rtt-juice
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      NODE_ENV: development
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: rtt-nginx
+    ports:
+      - "127.0.0.1:8088:80"
+    volumes:
+      - ./lab/nginx/misconfigured.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./lab/nginx/leaky:/usr/share/nginx/html:ro
+    restart: unless-stopped
+
+  sshd:
+    image: linuxserver/openssh-server:latest
+    container_name: rtt-sshd
+    ports:
+      - "127.0.0.1:2222:2222"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      USER_NAME: lab
+      USER_PASSWORD: lab
+      PASSWORD_ACCESS: "true"
+      SUDO_ACCESS: "false"
+    volumes:
+      - ./lab/ssh/sshd_config:/config/sshd_config:ro
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: rtt-redis
+    # No requirepass: this is the unauthenticated default the scanner should flag.
+    command: ["redis-server", "--bind", "0.0.0.0", "--protected-mode", "no"]
+    ports:
+      - "127.0.0.1:6379:6379"
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: rtt-postgres
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: lab
+    restart: unless-stopped
+
+  # Optional: a TLS endpoint with a self-signed, long-lived certificate, so
+  # `rtt tls` has a certificate problem to report. Enable with:
+  #   docker compose --profile tls up -d
+  tls:
+    image: nginx:1.25-alpine
+    container_name: rtt-tls
+    profiles: ["tls"]
+    ports:
+      - "127.0.0.1:8443:8443"
+    volumes:
+      - ./lab/tls:/etc/nginx:ro
+    restart: unless-stopped

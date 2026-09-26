@@ -1,0 +1,745 @@
+{
+  "schema": "rtt-cve-db/1",
+  "version": "1.0.0",
+  "updated": "2026-01-15",
+  "disclaimer": "Curated offline subset for educational and lab use. Verify every match against the vendor advisory and NVD before acting on it; ranges here are a starting point, not a patch decision.",
+  "products": {
+    "apache http server": {
+      "aliases": [
+        "apache",
+        "httpd",
+        "apache2",
+        "apache/2.4",
+        "apache httpd"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2021-42013",
+          "affected": [
+            [
+              "2.4.49",
+              "2.4.50"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "Incomplete fix for CVE-2021-41773. With Alias enabled, a path traversal reaches CGI scripts, giving remote code execution as the web-server user.",
+          "remediation": "Upgrade to 2.4.51 or later. Disable the Alias directive if it is not required."
+        },
+        {
+          "id": "CVE-2021-41773",
+          "affected": [
+            [
+              "2.4.49",
+              "2.4.49"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "Path traversal and file disclosure caused by a path-normalisation error in the 2.4.49 change to the Apache core. Becomes remote code execution when cgi-bin is enabled.",
+          "remediation": "Upgrade to 2.4.51 or later."
+        },
+        {
+          "id": "CVE-2019-0211",
+          "affected": [
+            [
+              "2.4.17",
+              "2.4.38"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.8,
+          "summary": "mod_proc is vulnerable to a race-condition privilege escalation that yields root from an Apache child process.",
+          "remediation": "Upgrade to 2.4.39 or later, or remove mod_proc if unused."
+        },
+        {
+          "id": "CVE-2019-10082",
+          "affected": [
+            [
+              "2.4.0",
+              "2.4.38"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.5,
+          "summary": "mod_proxy_server can be crashed with a specially crafted request, causing denial of service.",
+          "remediation": "Upgrade to 2.4.39 or later."
+        },
+        {
+          "id": "CVE-2019-10092",
+          "affected": [
+            [
+              "2.4.0",
+              "2.4.39"
+            ]
+          ],
+          "severity": "medium",
+          "cvss": 6.5,
+          "summary": "mod_http2 can read memory out of bounds when logging, exposing process memory to the client.",
+          "remediation": "Upgrade to 2.4.41 or later."
+        }
+      ]
+    },
+    "nginx": {
+      "aliases": [
+        "nginx/1.",
+        "nginx reverse proxy"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2021-23017",
+          "affected": [
+            [
+              "0.6.18",
+              "1.20.0"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 9.8,
+          "summary": "Off-by-one in the DNS resolver allows an attacker who controls DNS responses to overwrite memory adjacent to the resolver state.",
+          "remediation": "Upgrade to 1.21.0 or later, or avoid the resolver directive in favour of static upstream resolution."
+        },
+        {
+          "id": "CVE-2019-9511",
+          "affected": [
+            [
+              "1.9.5",
+              "1.16.0"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.5,
+          "summary": "HTTP/2 0-RST_STREAM flood allows a small number of requests to consume disproportionate server resources.",
+          "remediation": "Upgrade to 1.16.1 or later and enable http2_max_concurrent_streams."
+        }
+      ]
+    },
+    "openssh": {
+      "aliases": [
+        "openssh portable",
+        "sshd",
+        "openssh_server"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2024-6387",
+          "affected": [
+            [
+              "8.5p1",
+              "9.7p1"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 8.1,
+          "summary": "Race condition in the signal handler for the SSH server allows unauthenticated remote code execution as root on glibc-based Linux systems.",
+          "remediation": "Upgrade to 9.8p1 or later. As an interim measure, set LoginGraceTime to 0, accepting the risk of unauthenticated connection exhaustion."
+        },
+        {
+          "id": "CVE-2021-41617",
+          "affected": [
+            [
+              "6.2",
+              "8.7"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.0,
+          "summary": "When AuthorizedPrincipalsCommand and AuthorizedKeysCommand are configured, a crafted user name can trigger use of an unintended authorized_keys file, escalating privileges.",
+          "remediation": "Upgrade to 8.8 or later, or remove the AuthorizedPrincipalsCommand option."
+        }
+      ]
+    },
+    "vsftpd": {
+      "aliases": [
+        "vsftpd/2.3.4"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2011-2523",
+          "affected": [
+            [
+              "2.3.4",
+              "2.3.4"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "A backdoor was added to the vsftpd 2.3.4 source distribution. Opening port 6200 opens a root shell with no authentication.",
+          "remediation": "Replace the binary with a build from a verified upstream source. Any host that ran 2.3.4 must be treated as compromised."
+        }
+      ]
+    },
+    "proftpd": {
+      "aliases": [
+        "proftpd mod_copy"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2019-12815",
+          "affected": [
+            [
+              "1.3.5",
+              "1.3.6"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 8.1,
+          "summary": "mod_copy in ProFTPD 1.3.5 and 1.3.6 allows an authenticated user to copy files outside their home directory, bypassing ACLs.",
+          "remediation": "Upgrade to 1.3.7 or later, or disable mod_copy."
+        },
+        {
+          "id": "CVE-2020-9273",
+          "affected": [
+            [
+              "1.3.5",
+              "1.3.7"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 9.8,
+          "summary": "Use-after-free in mod_auth in ProFTPD 1.3.5 through 1.3.7 permits remote code execution, exploitable by any user who can authenticate.",
+          "remediation": "Upgrade to 1.3.8 or later."
+        }
+      ]
+    },
+    "php": {
+      "aliases": [
+        "php/7",
+        "php/8",
+        "php cgi",
+        "mod_php"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2024-4577",
+          "affected": [
+            [
+              "8.1.0",
+              "8.1.28"
+            ],
+            [
+              "8.2.0",
+              "8.2.19"
+            ],
+            [
+              "8.3.0",
+              "8.3.7"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "Argument injection in php-cgi on Windows with certain locales allows remote code execution by supplying soft hyphen characters in a query string. Also enables bypasses of a configured blocklist of dangerous CLI arguments.",
+          "remediation": "Upgrade to 8.1.29, 8.2.20 or 8.3.8. Do not expose php-cgi directly to the internet."
+        },
+        {
+          "id": "CVE-2012-1823",
+          "affected": [
+            [
+              "5.3.0",
+              "5.3.29"
+            ],
+            [
+              "5.4.0",
+              "5.4.42"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "The PHP-CGI argument parser honours a query-string option that overwrites argv, allowing execution of arbitrary code by appending a dash-flag to the URL.",
+          "remediation": "Upgrade to 5.3.30 or 5.4.43, or stop using php-cgi entirely."
+        },
+        {
+          "id": "CVE-2019-11043",
+          "affected": [
+            [
+              "7.1.0",
+              "7.3.0"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "PHP-FPM with nginx enabled rewrite rules has a buffer underflow in the FastCGI protocol parser, allowing remote code execution without authentication.",
+          "remediation": "Upgrade to 7.1.30, 7.2.19 or 7.3.6. Do not pass raw PATH_INFO through FastCGI."
+        }
+      ]
+    },
+    "apache tomcat": {
+      "aliases": [
+        "tomcat",
+        "tomcat/8",
+        "tomcat/9"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2020-1938",
+          "affected": [
+            [
+              "8.5.0",
+              "8.5.50"
+            ],
+            [
+              "9.0.0.M1",
+              "9.0.30"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "The AJP connector, enabled by default, is bound to all interfaces and has no authentication, allowing reading of arbitrary files and, in some configurations, execution of code.",
+          "remediation": "Upgrade to 9.0.31 or 8.5.51, and set address to 127.0.0.1 in the AJP connector configuration."
+        },
+        {
+          "id": "CVE-2017-12615",
+          "affected": [
+            [
+              "7.0.0",
+              "7.0.79"
+            ],
+            [
+              "8.5.0",
+              "8.5.5"
+            ],
+            [
+              "9.0.0.M1",
+              "9.0.0.M13"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 8.1,
+          "summary": "PUT requests to a JSP file execute the uploaded content as code when the default servlet is writable.",
+          "remediation": "Upgrade to 7.0.80, 8.5.6 or 9.0.14, and set readonly=true on the DefaultServlet."
+        }
+      ]
+    },
+    "log4j": {
+      "aliases": [
+        "log4j2",
+        "log4j-core",
+        "apache log4j",
+        "slf4j-log4j12"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2021-44832",
+          "affected": [
+            [
+              "2.0-beta7",
+              "2.17.0"
+            ]
+          ],
+          "severity": "medium",
+          "cvss": 6.6,
+          "summary": "JDBC Appender does not restrict the JNDI lookup, so a non-default configuration allows remote code execution. Requires a separate write primitive.",
+          "remediation": "Upgrade to 2.17.1 or later."
+        },
+        {
+          "id": "CVE-2021-45105",
+          "affected": [
+            [
+              "2.0-alpha1",
+              "2.16.0"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.5,
+          "summary": "Uncontrolled recursion in the lookup substitution mechanism causes a denial of service, and on a write-enabled configuration can escalate to code execution.",
+          "remediation": "Upgrade to 2.17.1 or later."
+        },
+        {
+          "id": "CVE-2021-45046",
+          "affected": [
+            [
+              "2.0-beta7",
+              "2.15.0"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.0,
+          "summary": "Incomplete fix for Log4Shell. Thread-context lookups remain exploitable in non-default configurations, including when the message pattern is user controlled.",
+          "remediation": "Upgrade to 2.17.1 or later."
+        },
+        {
+          "id": "CVE-2021-44228",
+          "affected": [
+            [
+              "2.0-beta9",
+              "2.14.1"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 10.0,
+          "summary": "Log4Shell. JNDI lookups in log messages let an attacker load a remote class and execute code, reachable through any input that reaches a log statement.",
+          "remediation": "Upgrade to 2.17.1 or later. On Java 8, remove the JndiLookup class. Treat every host running a vulnerable version as compromised and hunt for exploitation."
+        }
+      ]
+    },
+    "redis": {
+      "aliases": [
+        "redis-server"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2022-0543",
+          "affected": [
+            [
+              "5.0.0",
+              "5.0.12"
+            ],
+            [
+              "6.0.0",
+              "6.0.15"
+            ],
+            [
+              "6.2.0",
+              "6.2.6"
+            ],
+            [
+              "7.0.0",
+              "7.0.0"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 10.0,
+          "summary": "Debian and Ubuntu packaging of Redis sets an unbounded Lua sandbox and enables the `acl` mechanism, so an unauthenticated client can load a shared library and execute code as the Redis user.",
+          "remediation": "Upgrade to the packaged version that contains the fix. Never expose Redis publicly; require authentication and bind to localhost or a private interface."
+        }
+      ]
+    },
+    "apache solr": {
+      "aliases": [
+        "solr"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2021-27905",
+          "affected": [
+            [
+              "8.2.0",
+              "8.8.1"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 8.8,
+          "summary": "Solr's velocity response writer allows arbitrary code execution through a malicious Lucene expression, reachable by unauthenticated request if the shaded JAR is present.",
+          "remediation": "Upgrade to 8.8.2 or later, or remove the velocity response writer."
+        }
+      ]
+    },
+    "elasticsearch": {
+      "aliases": [
+        "es"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2015-1427",
+          "affected": [
+            [
+              "1.0.0",
+              "1.6.0"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.5,
+          "summary": "Default configuration leaves the cluster reachable and script execution enabled, allowing an unauthenticated attacker to run scripts and read or write the whole index.",
+          "remediation": "Upgrade to 1.6.1 or later and enable the security module with authentication on every node."
+        }
+      ]
+    },
+    "samba": {
+      "aliases": [
+        "smbd",
+        "smb"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2017-14746",
+          "affected": [
+            [
+              "4.13.0",
+              "4.13.3"
+            ],
+            [
+              "4.14.0",
+              "4.14.3"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "Use-after-free in SMB1 wildcard path processing allows an authenticated user to execute code as root once a share is connected to.",
+          "remediation": "Upgrade to 4.13.4, 4.14.4 or later, and disable SMB1, which is deprecated and unmaintained."
+        },
+        {
+          "id": "CVE-2020-27840",
+          "affected": [
+            [
+              "4.11.0",
+              "4.12.9"
+            ],
+            [
+              "4.13.0",
+              "4.13.12"
+            ],
+            [
+              "4.14.0",
+              "4.14.5"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.5,
+          "summary": "A null pointer dereference in the NetBIOS name service allows an unauthenticated attacker to crash the file server.",
+          "remediation": "Upgrade to a current Samba release."
+        }
+      ]
+    },
+    "openssl": {
+      "aliases": [
+        "libssl",
+        "openssl/1",
+        "openssl/3"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2022-3786",
+          "affected": [
+            [
+              "3.0.0",
+              "3.0.6"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.5,
+          "summary": "A buffer overrun in the PEM parser writes one arbitrary null byte four bytes past the end of a stack buffer when processing a maliciously crafted certificate file.",
+          "remediation": "Upgrade to 3.0.7 or later. Where possible, use -noenc or a non-PEM format to avoid the vulnerable parser."
+        },
+        {
+          "id": "CVE-2022-3602",
+          "affected": [
+            [
+              "3.0.0",
+              "3.0.6"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.5,
+          "summary": "A buffer overrun in the X.509 email address verification function allows a four-byte stack overflow when processing a crafted certificate.",
+          "remediation": "Upgrade to 3.0.7 or later."
+        },
+        {
+          "id": "CVE-2021-3711",
+          "affected": [
+            [
+              "1.1.1",
+              "1.1.1l"
+            ],
+            [
+              "3.0.0",
+              "3.0.0"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 9.1,
+          "summary": "Buffer overrun in the SM2 decryption routine allows remote code execution when processing an attacker-supplied ASN.1 encrypted key.",
+          "remediation": "Upgrade to 1.1.1l or 3.0.1 or later."
+        }
+      ]
+    },
+    "curl": {
+      "aliases": [
+        "libcurl",
+        "curl/7",
+        "curl/8"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2023-38545",
+          "affected": [
+            [
+              "7.69.0",
+              "7.88.1"
+            ],
+            [
+              "8.0.0",
+              "8.3.0"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 8.8,
+          "summary": "SOCKS5 hostname buffer overflow. A server that responds slowly enough to a crafted request can cause curl to write beyond the end of a heap buffer.",
+          "remediation": "Upgrade to 7.88.1, 8.4.0 or later. Note this bounds a heap overflow; it is not directly remote code execution."
+        }
+      ]
+    },
+    "sudo": {
+      "aliases": [
+        "sudo 1.",
+        "sudoers"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2021-3156",
+          "affected": [
+            [
+              "1.8.0",
+              "1.8.31"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 7.8,
+          "summary": "Baron Samedit. A heap-based buffer overflow in the way sudo parses the sudoers policy file allows a local user to escalate to root.",
+          "remediation": "Upgrade to 1.9.9 or 1.8.32 or later."
+        }
+      ]
+    },
+    "exim": {
+      "aliases": [
+        "exim4"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2021-3129",
+          "affected": [
+            [
+              "4.94",
+              "4.94.2"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "The 'set' command in the local-delivery delivery agent can be used to inject a trusted header, bypassing the authentication check and enabling remote code execution.",
+          "remediation": "Upgrade to 4.94.3 or later. Remove the use of the local_delivery delivery agent for untrusted senders."
+        }
+      ]
+    },
+    "jenkins": {
+      "aliases": [
+        "jenkins cli",
+        "jenkins.war"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2024-23897",
+          "affected": [
+            [
+              "2.426.0",
+              "2.426.2"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "The Jenkins CLI command endpoint expands user-controlled @-style file references, allowing an unauthenticated attacker to read any file on the controller filesystem.",
+          "remediation": "Upgrade to 2.426.3 or later, or disable the CLI endpoint entirely with -Djenkins.security.CliEndpoint=false."
+        }
+      ]
+    },
+    "spring framework": {
+      "aliases": [
+        "spring",
+        "springframework",
+        "spring-boot"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2022-22965",
+          "affected": [
+            [
+              "5.2.0",
+              "5.2.19"
+            ],
+            [
+              "5.3.0",
+              "5.3.17"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 9.8,
+          "summary": "Spring4Shell. Crafted request parameters to a running Spring Boot application on JDK 9+ can change the Tomcat access log location, and under some conditions lead to remote code execution.",
+          "remediation": "Upgrade to 5.2.20, 5.3.18 or later. Where an upgrade is not yet possible, upgrade the JDK to a build that mitigates the class-loading variant."
+        }
+      ]
+    },
+    "jquery": {
+      "aliases": [
+        "jquery.min.js",
+        "jquery ui"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2020-11022",
+          "affected": [
+            [
+              "1.2.0",
+              "3.4.1"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 6.1,
+          "summary": "Untrusted HTML passed to a DOM manipulation method can execute script, because values are passed to a DOM manipulation sink without the required sanitisation.",
+          "remediation": "Upgrade to 3.5.0 or later."
+        },
+        {
+          "id": "CVE-2020-11023",
+          "affected": [
+            [
+              "1.2.0",
+              "3.4.1"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 6.1,
+          "summary": "The HTML extension of the option() method can execute script when a value is read back after being set from an untrusted source.",
+          "remediation": "Upgrade to 3.5.0 or later."
+        }
+      ]
+    },
+    "windows smb": {
+      "aliases": [
+        "windows 7",
+        "windows server 2008",
+        "ms17-010"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2017-0143",
+          "affected": [
+            [
+              "6.1",
+              "6.1.7601"
+            ],
+            [
+              "6.2",
+              "6.2.9200"
+            ],
+            [
+              "6.3",
+              "6.3.9600"
+            ]
+          ],
+          "severity": "critical",
+          "cvss": 8.1,
+          "summary": "EternalBlue. Crafted SMBv1 packets allow remote code execution as SYSTEM with no authentication. Frequently weaponised by ransomware.",
+          "remediation": "Apply MS17-010. SMBv1 has been deprecated since Windows 10 21H2 and Windows Server 2022; disable it outright, along with the Null session and guest access settings."
+        },
+        {
+          "id": "CVE-2017-0144",
+          "affected": [
+            [
+              "6.1",
+              "6.1.7601"
+            ],
+            [
+              "6.2",
+              "6.2.9200"
+            ],
+            [
+              "6.3",
+              "6.3.9600"
+            ]
+          ],
+          "severity": "high",
+          "cvss": 8.1,
+          "summary": "SMBv1 information disclosure from an adjacent attacker, part of the EternalBlue exploit chain.",
+          "remediation": "Apply MS17-010 and disable SMBv1."
+        }
+      ]
+    }
+  }
+}

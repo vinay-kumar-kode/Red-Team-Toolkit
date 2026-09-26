@@ -1,0 +1,23 @@
+From: "PayPal" <service@paypal.com>
+Reply-To: service@paypal.com
+Return-Path: <service@paypal.com>
+To: victim@company.com
+Subject: Your receipt
+Date: Tue, 03 Mar 2026 10:00:00 +0000
+Message-ID: <legit-1@paypal.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Authentication-Results: mx1.company.com; spf=pass smtp.mailfrom=paypal.com; dkim=pass header.d=paypal.com; dmarc=pass header.from=paypal.com
+Received: from mail.paypal.com (mail.paypal.com [199.163.157.1])
+ by mx2.company.com (Postfix) with ESMTPS id 9F2C
+ for <victim@company.com>; Tue, 03 Mar 2026 10:00:01 +0000
+
+Your payment was processed. No action is needed.
+
+--
+Baseline for `rtt phishing --file lab/logs/legit.eml`: this message passes
+SPF, DKIM and DMARC, and the Reply-To and Return-Path domains match the sender.
+
+Expected result: no critical or high findings. That symmetry is the point: a
+triage tool that flags clean mail is noise, and you cannot act on the criticals
+if you stopped reading them.

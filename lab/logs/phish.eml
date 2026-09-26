@@ -1,0 +1,38 @@
+From: "IT Service Desk" <it-support@paypa1-secure.com>
+Reply-To: it-support@paypa1-secure.com
+Return-Path: <bounce@mailer-paypa1-secure.com>
+To: victim@company.com
+Subject: [URGENT] Your account will be suspended - verify within 24 hours
+Date: Tue, 03 Mar 2026 09:14:22 +0000
+Message-ID: <20260303091422.abc123@mailer-paypa1-secure.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+X-Mailer: PHPMailer 6.7.1
+Authentication-Results: mx1.company.com; spf=fail smtp.mailfrom=mailer-paypa1-secure.com; dkim=none; dmarc=fail header.from=paypa1-secure.com
+Received: from mx1.evil-hosting.net (mx1.evil-hosting.net [45.83.12.9])
+ by mx2.company.com (Postfix) with ESMTPS id 4A2F1B2C
+ for <victim@company.com>; Tue, 03 Mar 2026 09:14:20 +0000
+
+<html><body>
+<p>Dear valued user,</p>
+<p>We have detected unusual activity on your account. You must confirm your
+identity within 24 hours or your account will be permanently closed.</p>
+<p><a href="https://secure.paypa1-secure.com/verify?session=8fa21c3d">Verify your account now</a></p>
+<p>If you do not verify immediately, access will be suspended.</p>
+<p>Thank you,<br>IT Service Desk</p>
+</body></html>
+
+<!--
+  Sample message for `rtt phishing --file lab/logs/phish.eml`.
+
+  Every field here is fabricated. The point is to exercise the checks:
+    phish.dmarc-fail          SPF and DMARC both fail
+    phish.lookalike-domain    paypa1-secure.com reads as paypal.com
+    phish.return-path-mismatch envelope sender differs from the visible sender
+    phish.urgency-pressure    several threat and deadline phrases
+    phish.external-links      the link domain differs from the sender
+    phish.single-link         one link and nothing to compare it against
+
+  Expected result: several critical and high findings, with phish.lookalike-domain
+  and phish.dmarc-fail at the top. See lab/logs/legit.eml for the clean baseline.
+-->

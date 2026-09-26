@@ -1,0 +1,183 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redteam-toolkit"
+version = "2.0.0"
+description = "Educational security assessment toolkit: network scanning, configuration auditing, log analysis and CVE lookup"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Vinay Kumar Kode" }]
+keywords = ["security", "pentesting", "assessment", "hardening", "education", "scanner"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Education",
+    "Intended Audience :: Information Technology",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: System :: Systems Administration",
+]
+
+# One runtime dependency, deliberately. Everything else is stdlib, so the tool
+# installs cleanly on a locked-down assessment machine.
+dependencies = ["requests>=2.28"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.5",
+    "mypy>=1.8",
+    "types-requests>=2.31",
+]
+
+[project.scripts]
+rtt = "redteam_toolkit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/vinay-kumar-kode/Red-Team-Toolkit"
+Repository = "https://github.com/vinay-kumar-kode/Red-Team-Toolkit"
+Issues = "https://github.com/vinay-kumar-kode/Red-Team-Toolkit/issues"
+
+[tool.setuptools]
+packages = ["redteam_toolkit", "redteam_toolkit.modules", "redteam_toolkit.reporting", "redteam_toolkit.utils"]
+
+[tool.setuptools.package-data]
+redteam_toolkit = ["py.typed"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-q",
+    "--strict-markers",
+    "--strict-config",
+    "-ra",
+]
+markers = [
+    "network: test opens a socket against a local ephemeral listener",
+    "slow: test takes more than a second",
+]
+filterwarnings = [
+    "error::DeprecationWarning:redteam_toolkit.*",
+    # The TLS audit has to reference deprecated protocol versions in order to
+    # detect them, so ssl's deprecation notices are expected rather than a bug.
+    "ignore:ssl.TLSVersion.TLSv1:DeprecationWarning",
+    "ignore:ssl.TLSVersion.TLSv1_1:DeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["redteam_toolkit"]
+branch = true
+omit = ["*/__main__.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+src = ["redteam_toolkit", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W",   # pycodestyle
+    "F",       # pyflakes
+    "I",       # isort
+    "N",       # pep8-naming
+    "UP",      # pyupgrade
+    "B",       # bugbear
+    "A",       # builtin shadowing
+    "C4",      # comprehensions
+    "SIM",     # simplify
+    "RET",     # return
+    "PTH",     # pathlib
+    "RUF",
+    "S",       # bandit
+    "PL",      # pylint subset
+    "T20",     # print, where it is not the point
+]
+ignore = [
+    "E501",    # line length is the formatter's job
+    # This tool is a table of protocol constants and severity thresholds, so
+    # comparing against a literal port number or severity string is the normal
+    # case rather than a sign of a magic value.
+    "PLR2004",
+    "PLR0913", # the modules legitimately take many options
+    "PLR0911", # parsers are clearest as a flat sequence of guards
+    "PLR0912", # ditto for the ruleset and banner scanners
+    "PLR0915",
+    "PLR0917",
+    # Printing is the product here; the per-file ignores below mark the few
+    # places where it is not.
+    "T201",
+    "S101",    # assert is the point in test helpers
+    "RUF012",  # the report and ruleset models use plain class-level mappings
+    "PLC0415", # some imports are deliberately local, for optional deps and cycles
+    # The console module exists to carry two process-wide switches (colour and
+    # quiet) so that every print helper deep in the call tree can honour them.
+    # Module-level state is the mechanism, not an accident.
+    "PLW0603",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "S", "ARG", "PLR2004", "N806", "PLC2701", "SIM117", "B011", "EM101", "PT011",
+]
+"redteam_toolkit/modules/scanner.py" = ["S104"]  # binding to all interfaces is core to a scanner
+"redteam_toolkit/modules/webscan.py" = ["S113", "S310"]  # URL building and request timeouts
+"redteam_toolkit/modules/phishing.py" = ["S105"]  # the brand table contains brand words, not tokens
+"redteam_toolkit/modules/firewall_audit.py" = ["S104"]  # "0.0.0.0/0" is the thing being detected
+"redteam_toolkit/utils/console.py" = ["T201"]  # every function here prints
+"redteam_toolkit/cli.py" = ["T201"]
+"redteam_toolkit/modules/attack.py" = ["T201"]
+"redteam_toolkit/modules/hash_audit.py" = ["T201"]
+"redteam_toolkit/modules/logs.py" = ["T201"]
+"redteam_toolkit/modules/password.py" = ["T201"]
+"redteam_toolkit/modules/payload.py" = ["T201"]
+"redteam_toolkit/modules/ssh_audit.py" = ["T201"]
+"redteam_toolkit/modules/tls_audit.py" = ["T201"]
+"redteam_toolkit/reporting/text.py" = ["T201"]
+"main.py" = ["T201"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.10"
+files = ["redteam_toolkit"]
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+no_implicit_optional = true
+strict_equality = true
+check_untyped_defs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = ["requests.*"]
+ignore_missing_imports = true

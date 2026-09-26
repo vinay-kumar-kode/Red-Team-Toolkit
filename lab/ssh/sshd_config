@@ -1,0 +1,42 @@
+# Intentionally weak sshd_config for the SSH audit.
+#
+# Run against the lab with:
+#   python main.py ssh --config lab/ssh/sshd_config
+#
+# ssh.permit-root-login, ssh.password-auth, ssh.max-auth-tries,
+# ssh.login-grace-time, ssh.x11-forwarding and ssh.compression are the findings
+# this file is designed to trigger.
+
+Port 2222
+Protocol 2
+
+# CRITICAL: the account every automated attack targets first, and one that skips
+# horizontal-movement steps entirely.
+PermitRootLogin yes
+
+# HIGH: passwords are guessable over the network, so this port is a brute-force target.
+PasswordAuthentication yes
+PubkeyAuthentication no
+
+# LOW: multiplies how many guesses fit in a single connection.
+MaxAuthTries 20
+LoginGraceTime 300
+
+# LOW: CRIME is possible when compression precedes encryption.
+Compression yes
+X11Forwarding yes
+
+# MEDIUM: INFO-level logging lacks the detail needed to investigate an attack.
+LogLevel INFO
+
+# HIGH: legacy key exchange, cipher and MAC algorithms are still permitted.
+KexAlgorithms diffie-hellman-group-exchange-sha256,diffie-hellman-group1-sha1
+Ciphers aes256-cbc,3des-cbc,rc4,chacha20-poly1305@openssh.com
+MACs hmac-md5,hmac-sha2-256
+
+# MEDIUM: a Match block can re-open what the global policy just closed.
+Match User deploy
+    PasswordAuthentication yes
+    PermitRootLogin yes
+
+# Include /etc/ssh/sshd_config.d/*.conf

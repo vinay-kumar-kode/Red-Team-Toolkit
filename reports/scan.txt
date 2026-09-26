@@ -1,6 +1,0 @@
-
-[+] Scanning 192.168.240.234...
-[CLOSED] 21 (FTP)
-[CLOSED] 22 (SSH)
-[CLOSED] 80 (HTTP)
-[CLOSED] 443 (HTTPS)

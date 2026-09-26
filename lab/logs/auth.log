@@ -1,0 +1,93 @@
+Mar  4 09:00:03 web01 sshd[1201]: Accepted password for alice from 10.0.0.14 port 55222 ssh2
+Mar  4 09:00:11 web01 sshd[1207]: Accepted password for bob from 10.0.0.22 port 55230 ssh2
+Mar  4 09:00:19 web01 sshd[1212]: Accepted publickey for deploy from 10.0.0.9 port 55244 ssh2
+Mar  4 09:00:26 web01 kernel: [1201.334] eth0: Link is Up 10 Gbit/s
+Mar  4 09:00:31 web01 sshd[1215]: Failed password for invalid user admin from 203.0.113.44 port 40001 ssh2
+Mar  4 09:00:32 web01 sshd[1216]: Failed password for invalid user root from 203.0.113.44 port 40002 ssh2
+Mar  4 09:00:33 web01 sshd[1217]: Failed password for invalid user oracle from 203.0.113.44 port 40003 ssh2
+Mar  4 09:00:34 web01 sshd[1218]: Failed password for invalid user postgres from 203.0.113.44 port 40004 ssh2
+Mar  4 09:00:35 web01 sshd[1219]: Failed password for invalid user jenkins from 203.0.113.44 port 40005 ssh2
+Mar  4 09:00:36 web01 sshd[1220]: Failed password for invalid user git from 203.0.113.44 port 40006 ssh2
+Mar  4 09:00:37 web01 sshd[1221]: Failed password for invalid user test from 203.0.113.44 port 40007 ssh2
+Mar  4 09:00:38 web01 sshd[1222]: Failed password for invalid user ubuntu from 203.0.113.44 port 40008 ssh2
+Mar  4 09:00:39 web01 sshd[1223]: Failed password for invalid user pi from 203.0.113.44 port 40009 ssh2
+Mar  4 09:00:40 web01 sshd[1224]: Failed password for root from 203.0.113.44 port 40010 ssh2
+Mar  4 09:00:41 web01 sshd[1225]: Failed password for root from 203.0.113.44 port 40011 ssh2
+Mar  4 09:00:42 web01 sshd[1226]: Failed password for root from 203.0.113.44 port 40012 ssh2
+Mar  4 09:00:43 web01 sshd[1227]: Failed password for root from 203.0.113.44 port 40013 ssh2
+Mar  4 09:00:44 web01 sshd[1228]: Failed password for root from 203.0.113.44 port 40014 ssh2
+Mar  4 09:00:45 web01 sshd[1229]: Failed password for root from 203.0.113.44 port 40015 ssh2
+Mar  4 09:00:46 web01 sshd[1230]: Failed password for root from 203.0.113.44 port 40016 ssh2
+Mar  4 09:00:47 web01 sshd[1231]: Failed password for root from 203.0.113.44 port 40017 ssh2
+Mar  4 09:00:48 web01 sshd[1232]: Failed password for root from 203.0.113.44 port 40018 ssh2
+Mar  4 09:00:49 web01 sshd[1233]: Failed password for root from 203.0.113.44 port 40019 ssh2
+Mar  4 09:00:50 web01 sshd[1234]: Failed password for root from 203.0.113.44 port 40020 ssh2
+Mar  4 09:00:51 web01 sshd[1235]: Failed password for root from 203.0.113.44 port 40021 ssh2
+Mar  4 09:00:52 web01 sshd[1236]: Failed password for root from 203.0.113.44 port 40022 ssh2
+Mar  4 09:00:53 web01 sshd[1237]: Failed password for root from 203.0.113.44 port 40023 ssh2
+Mar  4 09:00:54 web01 sshd[1238]: Failed password for root from 203.0.113.44 port 40024 ssh2
+Mar  4 09:00:55 web01 sshd[1239]: Failed password for root from 203.0.113.44 port 40025 ssh2
+Mar  4 09:00:56 web01 sshd[1240]: Failed password for root from 203.0.113.44 port 40026 ssh2
+Mar  4 09:00:57 web01 sshd[1241]: Failed password for root from 203.0.113.44 port 40027 ssh2
+Mar  4 09:00:58 web01 sshd[1242]: Failed password for root from 203.0.113.44 port 40028 ssh2
+Mar  4 09:00:59 web01 sshd[1243]: Failed password for root from 203.0.113.44 port 40029 ssh2
+Mar  4 09:01:00 web01 sshd[1244]: Failed password for root from 203.0.113.44 port 40030 ssh2
+Mar  4 09:01:01 web01 sshd[1245]: Failed password for root from 203.0.113.44 port 40031 ssh2
+Mar  4 09:01:02 web01 sshd[1246]: Failed password for root from 203.0.113.44 port 40032 ssh2
+Mar  4 09:01:03 web01 sshd[1247]: Failed password for root from 203.0.113.44 port 40033 ssh2
+Mar  4 09:01:04 web01 sshd[1248]: Failed password for root from 203.0.113.44 port 40034 ssh2
+Mar  4 09:01:05 web01 sshd[1249]: Failed password for root from 203.0.113.44 port 40035 ssh2
+Mar  4 09:01:06 web01 sshd[1250]: Failed password for root from 203.0.113.44 port 40036 ssh2
+Mar  4 09:01:07 web01 sshd[1251]: Failed password for root from 203.0.113.44 port 40037 ssh2
+Mar  4 09:01:08 web01 sshd[1252]: Failed password for root from 203.0.113.44 port 40038 ssh2
+Mar  4 09:01:09 web01 sshd[1253]: Failed password for root from 203.0.113.44 port 40039 ssh2
+Mar  4 09:01:10 web01 sshd[1254]: Failed password for root from 203.0.113.44 port 40040 ssh2
+Mar  4 09:01:11 web01 sshd[1255]: Failed password for root from 203.0.113.44 port 40041 ssh2
+Mar  4 09:01:12 web01 sshd[1256]: Failed password for root from 203.0.113.44 port 40042 ssh2
+Mar  4 09:01:13 web01 sshd[1257]: Failed password for root from 203.0.113.44 port 40043 ssh2
+Mar  4 09:01:14 web01 sshd[1258]: Failed password for root from 203.0.113.44 port 40044 ssh2
+Mar  4 09:01:15 web01 sshd[1259]: Failed password for root from 203.0.113.44 port 40045 ssh2
+Mar  4 09:01:16 web01 sshd[1260]: Failed password for root from 203.0.113.44 port 40046 ssh2
+Mar  4 09:01:17 web01 sshd[1261]: Failed password for root from 203.0.113.44 port 40047 ssh2
+Mar  4 09:01:18 web01 sshd[1262]: Failed password for root from 203.0.113.44 port 40048 ssh2
+Mar  4 09:01:19 web01 sshd[1263]: Failed password for root from 203.0.113.44 port 40049 ssh2
+Mar  4 09:01:20 web01 sshd[1264]: Failed password for root from 203.0.113.44 port 40050 ssh2
+Mar  4 09:01:21 web01 sshd[1265]: Failed password for root from 203.0.113.44 port 40051 ssh2
+Mar  4 09:01:22 web01 sshd[1266]: Failed password for root from 203.0.113.44 port 40052 ssh2
+Mar  4 09:01:23 web01 sshd[1267]: Failed password for root from 203.0.113.44 port 40053 ssh2
+Mar  4 09:01:24 web01 sshd[1268]: Failed password for root from 203.0.113.44 port 40054 ssh2
+Mar  4 09:01:25 web01 sshd[1269]: Failed password for root from 203.0.113.44 port 40055 ssh2
+Mar  4 09:01:26 web01 sshd[1270]: Failed password for root from 203.0.113.44 port 40056 ssh2
+Mar  4 09:01:27 web01 sshd[1271]: Failed password for root from 203.0.113.44 port 40057 ssh2
+Mar  4 09:01:28 web01 sshd[1272]: Failed password for root from 203.0.113.44 port 40058 ssh2
+Mar  4 09:01:29 web01 sshd[1273]: Failed password for root from 203.0.113.44 port 40059 ssh2
+Mar  4 09:01:30 web01 sshd[1274]: Failed password for root from 203.0.113.44 port 40060 ssh2
+Mar  4 09:01:31 web01 sshd[1275]: Accepted password for root from 203.0.113.44 port 40061 ssh2
+Mar  4 09:02:40 web01 sshd[1301]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=root
+Mar  4 09:02:43 web01 sshd[1302]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=admin
+Mar  4 09:02:46 web01 sshd[1303]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=postgres
+Mar  4 09:02:49 web01 sshd[1304]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=oracle
+Mar  4 09:02:52 web01 sshd[1305]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=ubuntu
+Mar  4 09:02:55 web01 sshd[1306]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=mysql
+Mar  4 09:02:58 web01 sshd[1307]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=jenkins
+Mar  4 09:02:59 web01 sshd[1308]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=deploy
+Mar  4 09:03:01 web01 sshd[1309]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=git
+Mar  4 09:03:04 web01 sshd[1310]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=198.51.100.77  user=oracle
+Mar  4 09:03:07 web01 nginx: 2026/03/04 09:03:07 [error] 401#0: *1 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal"
+Mar  4 09:03:09 web01 nginx: 2026/03/04 09:03:09 [error] 401#0: *2 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="jsmith"
+Mar  4 09:03:11 web01 nginx: 2026/03/04 09:03:11 [error] 401#0: *3 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="asmith"
+Mar  4 09:03:13 web01 nginx: 2026/03/04 09:03:13 [error] 401#0: *4 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="bchen"
+Mar  4 09:03:15 web01 nginx: 2026/03/04 09:03:15 [error] 401#0: *5 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="dwang"
+Mar  4 09:03:17 web01 nginx: 2026/03/04 09:03:17 [error] 401#0: *6 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="ejones"
+Mar  4 09:03:19 web01 nginx: 2026/03/04 09:03:19 [error] 401#0: *7 open() "/login" failed (2: No false or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="fgarcia"
+Mar  4 09:03:21 web01 nginx: 2026/03/04 09:03:21 [error] 401#0: *8 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="hkim"
+Mar  4 09:03:23 web01 nginx: 2026/03/04 09:03:23 [error] 401#0: *9 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="ijohnson"
+Mar  4 09:03:25 web01 nginx: 2026/03/04 09:03:25 [error] 401#0: *10 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="klee"
+Mar  4 09:03:27 web01 nginx: 2026/03/04 09:03:27 [error: 401#0: *11 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="lzhang"
+Mar  4 09:03:29 web01 nginx: 2026/03/04 09:03:29 [error] 401#0: *12 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="mwu"
+Mar  4 09:03:31 web01 nginx: 2026/03/04 09:03:31 [error] 401#0: *12 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="nsmith"
+Mar  4 09:03:33 web01 nginx: 2026/03/04 09:03:33 [error] 401#0: *13 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="orossi"
+Mar  4 09:03:35 web01 nginx: 2026/03/04 09:03:35 [error] 401#0: *14 open() "/login" failed (2: No such file or directory), client: 198.51.100.9, server: portal, request: "POST /login HTTP/1.1", host: "portal", user="ppatel"
+Mar  4 09:04:20 web01 sshd[1400]: Accepted password for carol from 10.0.0.31 port 55500 ssh2
+Mar  4 09:05:02 web01 sshd[1401]: Failed password for carol from 10.0.0.31 port 55501 ssh2
+Mar  4 09:06:44 web01 sshd[1402]: Accepted password for alice from 10.0.0.14 port 55280 ssh2

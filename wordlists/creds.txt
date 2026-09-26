@@ -1,5 +1,85 @@
+# Username:password pairs for offline wordlist analysis.
+#
+# This file is NOT used to authenticate against anything. `rtt password
+# --wordlist` reads it to score how many guesses an attacker would need and how
+# long the passwords would survive. Keep it small and realistic: a list of this
+# size only proves the obvious passwords are not in use.
+#
+# Format: one username:password per line. Lines starting with # are comments.
+#
+# Passwords here are all deliberately terrible. That is the point: they are the
+# ones a combo list reaches in the first few hundred attempts, and they are what
+# the strength checker should refuse to call anything but weak.
+
+# Default and administrative accounts
 admin:admin
 admin:admin123
+admin:password
+admin:Password1
+admin:123456
+administrator:administrator
+root:root
 root:toor
-user:password
+root:password
+root:123456
+user:user
+test:test
 test:test123
+guest:guest
+operator:operator
+
+# Service and database defaults
+mysql:mysql
+mysql:root
+postgres:postgres
+oracle:oracle
+ftp:ftp
+anonymous:
+jenkins:jenkins
+tomcat:tomcat
+redis:redis
+mongodb:mongo
+
+# Application defaults seen in lab and tutorial deployments
+dvwa:dvwa
+dvwa:password
+phpbb:phpbb
+joomla:joomla
+wordpress:wordpress
+webmin:webmin
+pi:pi
+vagrant:vagrant
+ubuntu:ubuntu
+centos:centos
+
+# Season and year patterns, the single most common real-world choice
+summer:summer
+summer:summer2024
+summer:Summer2024
+winter:winter2024
+spring:spring2024
+autumn:autumn2024
+company:company
+
+# Keyboard-walk and leet variants
+qwerty:qwerty
+qwerty:qwerty123
+admin:P@ssw0rd
+admin:Adm1n
+root:r00t
+admin:letmein
+
+# Reused employee-style credentials
+jsmith:password
+jdoe:password
+jsmith:Password1
+jsmith:JSmith2024
+jdoe:jdoe
+asmith:asmith
+bchen:bchen123
+
+# Blank and trivially short, for detecting empty-password accounts
+service:
+deploy:
+backup:
+monitor:

@@ -1,0 +1,7 @@
+# Runtime dependencies.
+#
+# Deliberately short: one library. Everything else the toolkit needs comes from
+# the standard library, which matters on an assessment machine where installing
+# packages is slow, audited, or impossible.
+
+requests>=2.28    # HTTP/HTTPS scanning (redteam_toolkit.modules.webscan)

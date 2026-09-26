@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.tox/
+
+# Reports produced by the toolkit. Committed output goes stale immediately and
+# may contain findings from someone else's network, so it is not tracked.
+reports/*.json
+reports/*.html
+reports/*.txt
+!reports/.gitkeep
+
+# Local overrides
+.env
+*.local
+lab/tls/key.pem
+lab/tls/cert.pem
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
