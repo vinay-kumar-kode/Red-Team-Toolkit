@@ -128,7 +128,7 @@ Requires Python 3.10 or newer. Tested on 3.10 through 3.13.
 
 ```bash
 # Bring up deliberately vulnerable lab targets on 127.0.0.1
-docker compose up -d
+docker-compose up -d
 
 # Full assessment across every lab service, all report formats
 rtt attack --target 127.0.0.1 --i-understand \
